@@ -14,25 +14,7 @@
 
 	<link rel="stylesheet" href="./css/main.css" />
 
-	<script>
-		window.onload = () => {
-			const userLanguage = navigator.language || navigator.userLanguage;
-
-			// Проверяем, был ли уже выполнен редирект
-			if (!localStorage.getItem('redirected')) {
-				if (userLanguage.startsWith('ru')) {
-					localStorage.setItem('redirected', 'true'); // Сохраняем, что редирект выполнен
-					window.location.href = 'ru.html'; // Для русской раскладки
-				} else if (userLanguage.startsWith('en')) {
-					localStorage.setItem('redirected', 'true'); // Сохраняем, что редирект выполнен
-					window.location.href = 'index.html'; // Для английской раскладки
-				} else {
-					localStorage.setItem('redirected', 'true'); // Сохраняем, что редирект выполнен
-					window.location.href = 'index.html'; // Для всех остальных языков
-				}
-			}
-		};
-	</script>
+	
 </head>
 
 <body>
