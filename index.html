@@ -6,13 +6,35 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>SurfLink - Sweepstakes Network</title>
-	<meta name="description" content="Лучшие предложения CPA для свипстейков! Наша партнёрская сеть предлагает свипы с высокими выплатами и глобальным охватом. Присоединяйтесь к лучшей CPA сети для Sweepstakes и начинайте зарабатывать с эксклюзивными офферами. ПП Sweepstakes предлагает гибкие условия выплат и высококонверсионные предложения для ваших кампаний." />
+	<meta name="description"
+		content="Лучшие предложения CPA для свипстейков! Наша партнёрская сеть предлагает свипы с высокими выплатами и глобальным охватом. Присоединяйтесь к лучшей CPA сети для Sweepstakes и начинайте зарабатывать с эксклюзивными офферами. ПП Sweepstakes предлагает гибкие условия выплат и высококонверсионные предложения для ваших кампаний." />
 	<link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" media="print"
+		onload="this.media='all'">
 
 	<link rel="stylesheet" href="./css/main.css" />
+	<script>
+		window.onload = () => {
+			const userLanguage = navigator.language || navigator.userLanguage;
+
+			// Проверяем, был ли уже выполнен редирект
+			if (!localStorage.getItem('redirected')) {
+				if (userLanguage.startsWith('ru')) {
+					localStorage.setItem('redirected', 'true'); // Сохраняем, что редирект выполнен
+					window.location.href = 'ru.html'; // Для русской раскладки
+				} else if (userLanguage.startsWith('en')) {
+					localStorage.setItem('redirected', 'true'); // Сохраняем, что редирект выполнен
+					window.location.href = 'index.html'; // Для английской раскладки
+				} else {
+					localStorage.setItem('redirected', 'true'); // Сохраняем, что редирект выполнен
+					window.location.href = 'index.html'; // Для всех остальных языков
+				}
+			}
+		};
+	</script>
+
 </head>
 
 <body>
@@ -259,7 +281,8 @@
 			</div>
 		</section>
 		<section id="advertiser" class="advertiser">
-			<img loading="lazy" class="advertiser__img advertiser__img--anim" src="./img/socialone.webp" alt="свипстейк-офферы">
+			<img loading="lazy" class="advertiser__img advertiser__img--anim" src="./img/socialone.webp"
+				alt="свипстейк-офферы">
 			<div class="advertiser__container container__full">
 				<p class="advertiser__title title">
 					FOR Advertiser
@@ -296,7 +319,8 @@
 
 				</form>
 			</div>
-			<img loading="lazy" class="advertiser__img2 advertiser__img--anim" src="./img/socialtwo.webp" alt="Sweepstakes-арбитраж">
+			<img loading="lazy" class="advertiser__img2 advertiser__img--anim" src="./img/socialtwo.webp"
+				alt="Sweepstakes-арбитраж">
 		</section>
 	</main>
 
@@ -495,40 +519,40 @@
 		</div>
 	</div>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJEXTH11M4"></script>
-<script defer>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
+	<script defer>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
 
-  // Проверка на наличие параметра debug в URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const debugMode = urlParams.has('debug') && urlParams.get('debug') === 'true';
+		// Проверка на наличие параметра debug в URL
+		const urlParams = new URLSearchParams(window.location.search);
+		const debugMode = urlParams.has('debug') && urlParams.get('debug') === 'true';
 
-  // Инициализация GA4 с параметром debug_mode
-  gtag('js', new Date());
-  gtag('config', 'G-SJEXTH11M4', { 'debug_mode': debugMode });
+		// Инициализация GA4 с параметром debug_mode
+		gtag('js', new Date());
+		gtag('config', 'G-SJEXTH11M4', { 'debug_mode': debugMode });
 
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Предотвращаем стандартное поведение формы
+		document.getElementById('contactForm').addEventListener('submit', function (event) {
+			event.preventDefault(); // Предотвращаем стандартное поведение формы
 
-      // Отправка события в Google Analytics 4
-      gtag('event', 'conversion_event_default', {
-          'event_category': 'Form',
-          'event_label': 'Contact Form Submission'
-      });
+			// Отправка события в Google Analytics 4
+			gtag('event', 'conversion_event_default', {
+				'event_category': 'Form',
+				'event_label': 'Contact Form Submission'
+			});
 
-      // Логирование данных для дебага
-      if (debugMode) {
-          console.log('Debug Mode Enabled: Event sent to GA4');
-          console.log({
-              'event_category': 'Form',
-              'event_label': 'Contact Form Submission'
-          });
-      }
+			// Логирование данных для дебага
+			if (debugMode) {
+				console.log('Debug Mode Enabled: Event sent to GA4');
+				console.log({
+					'event_category': 'Form',
+					'event_label': 'Contact Form Submission'
+				});
+			}
 
-      // Дополнительное действие после отправки формы, если необходимо
-      // Например, можно отправить форму через AJAX или показать сообщение пользователю
-  });
-</script>
+			// Дополнительное действие после отправки формы, если необходимо
+			// Например, можно отправить форму через AJAX или показать сообщение пользователю
+		});
+	</script>
 
 
 
