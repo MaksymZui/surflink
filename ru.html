@@ -9,9 +9,30 @@
 	<link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet" media="print"
+		onload="this.media='all'">
 
 	<link rel="stylesheet" href="./css/main.css" />
+
+	<script>
+		window.onload = () => {
+			const userLanguage = navigator.language || navigator.userLanguage;
+
+			// Проверяем, был ли уже выполнен редирект
+			if (!localStorage.getItem('redirected')) {
+				if (userLanguage.startsWith('ru')) {
+					localStorage.setItem('redirected', 'true'); // Сохраняем, что редирект выполнен
+					window.location.href = 'ru.html'; // Для русской раскладки
+				} else if (userLanguage.startsWith('en')) {
+					localStorage.setItem('redirected', 'true'); // Сохраняем, что редирект выполнен
+					window.location.href = 'index.html'; // Для английской раскладки
+				} else {
+					localStorage.setItem('redirected', 'true'); // Сохраняем, что редирект выполнен
+					window.location.href = 'index.html'; // Для всех остальных языков
+				}
+			}
+		};
+	</script>
 </head>
 
 <body>
